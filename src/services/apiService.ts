@@ -8,7 +8,6 @@ export const productService = {
     const cachedData = localStorage.getItem(STORAGE_KEY);
     if (cachedData) {
       const products = JSON.parse(cachedData);
-      console.log("cachedData", products);
 
       return products;
     }
