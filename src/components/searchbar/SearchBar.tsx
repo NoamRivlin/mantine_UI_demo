@@ -8,23 +8,18 @@ function SearchBar({ searchTerm, onSearchChange, placeholder = "Search products.
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onSearchChange(event.target.value);
-  }
+  };
 
   return (
     <TextInput
       placeholder={placeholder}
       size="md"
-      mb="xl"
       leftSection={<BsSearchHeart size={25} />}
       value={searchTerm}
-        onChange={handleSearchChange}
+      onChange={handleSearchChange}
       style={{
         width: isLargeScreen ? "45%" : "85%",
-        margin: "0 auto",
-        // and when focused change border color to green
-        ":focus": {
-          borderColor: "green",
-        }
+        margin: isLargeScreen ? "0.5rem auto" : "2rem auto",
       }}
     />
   );

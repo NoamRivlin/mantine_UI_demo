@@ -38,3 +38,5 @@ export const useProducts = (): UseProducts => {
 
   return { products, isLoading, error, refetch };
 };
+
+

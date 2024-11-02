@@ -13,7 +13,7 @@ const ProductCardMinimal = ({ product }: ProductCardMinimalProps) => {
       to={`/product/${product.id}`}
       shadow="sm"
       p="md"
-      m="lg"
+      m="sm"
       radius="md"
       style={{
         cursor: "pointer",
@@ -27,7 +27,7 @@ const ProductCardMinimal = ({ product }: ProductCardMinimalProps) => {
       }}
     >
       <AspectRatio>
-        <Image src={product.image.url} alt={product.title} height={250} fit="contain" />
+        <Image src={product.image.url} alt={product.title} height={200} fit="contain" />
       </AspectRatio>
       <Center>
         <Text style={{ fontWeight: 500, fontSize: 18 }} size="lg" mt="md">
