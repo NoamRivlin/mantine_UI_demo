@@ -5,14 +5,14 @@ import { productService, STORAGE_KEY } from "../services/apiService";
 interface UseProducts {
   products: Product[];
   isLoading: boolean;
-  error: string | null;
+  error: any | null;
   refetch: () => Promise<void>;
 }
 
 export const useProducts = (): UseProducts => {
   const [products, setProducts] = useState<Product[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<any | null>(null);
 
   const fetchProducts = async () => {
     setIsLoading(true);
@@ -23,6 +23,7 @@ export const useProducts = (): UseProducts => {
       setError(null);
     } catch (error) {
       setError("Failed to fetch products");
+      setError(error);
     } finally {
       setIsLoading(false);
     }

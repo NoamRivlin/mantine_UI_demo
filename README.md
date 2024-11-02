@@ -1,50 +1,115 @@
-# React + TypeScript + Vite
+# Konimbo Home Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based product catalog application built with TypeScript and Vite. This project showcases a responsive product grid with detailed product pages, utilizing modern React practices and the Mantine UI framework.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Product grid layout with clickable cards
+- Individual product detail pages
+- Responsive design
+- Type-safe development with TypeScript
+- Modern routing with React Router
+- Sleek UI components from Mantine
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Framework:** React 18
+- **Build Tool:** Vite
+- **UI Library:** Mantine Core & Components
+- **Router:** React Router DOM
+- **Language:** TypeScript
+- **Icons:** React Icons
 
-- Configure the top-level `parserOptions` property like this:
+## 📋 Prerequisites
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- Node.js (LTS version recommended)
+- npm or yarn package manager
+- env file in the root folder with var named - VITE_KONIMBO_URL={your_url}
+
+## 🔧 Installation
+
+1. Clone the repository:
+
+```bash
+git clone [repository-url]
+cd konimbo-ha
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Install dependencies:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm install
+# or
+yarn install
 ```
+
+## 🚀 Available Scripts
+
+- **Development server:**
+
+```bash
+npm run dev
+```
+
+Starts the development server at `http://localhost:5173`
+
+- **Production build:**
+
+```bash
+npm run build
+```
+
+Creates an optimized production build
+
+- **Lint check:**
+
+```bash
+npm run lint
+```
+
+Runs ESLint to check code quality
+
+- **Preview production build:**
+
+```bash
+npm run preview
+```
+
+Preview the production build locally
+
+## 💻 Development
+
+The application is built using:
+
+- Vite for fast development and building
+- TypeScript for type safety
+- ESLint for code quality
+- Mantine for UI components
+- React Router for navigation
+
+## 🔍 Code Quality
+
+This project uses:
+
+- ESLint for code linting
+- TypeScript for static type checking
+- Modern React practices and hooks
+- Component-based architecture
+
+## 📱 Responsive Design
+
+The application is fully responsive and works across:
+
+- Desktop devices
+- Tablets
+- Mobile devices
+
+## 🔐 License
+
+Private repository - All rights reserved
+
+## 👥 Author
+
+Noam Rivlin
+
+---
