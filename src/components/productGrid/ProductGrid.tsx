@@ -23,7 +23,7 @@ function ProductGrid({ isLoading, }: ProductGridProps) {
     <>
       <ProductPagination />
 
-      <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="sm">
+      <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="xs" >
         {currentProducts.map((product) => (
           <ProductCardMinimal key={product.id} product={product} />
         ))}

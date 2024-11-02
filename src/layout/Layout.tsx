@@ -11,13 +11,14 @@ function Layout({ children }: LayoutProps) {
 
   return (
     <AppShell
-      padding={{ base: 10, sm: 15, lg: "xl" }}
+      padding={{ base: 5, sm: 5, lg: 0 }}
       styles={(theme) => ({
         main: {
           backgroundColor: colorScheme === "dark" ? theme.colors.dark[8] : theme.colors.gray[0],
         },
       })}
-      header={{ height: 60 }}
+      header={{ height: 50 }}
+      footer={{ height: 30 }}
     >
       <AppShell.Header>
         <AppHeader />
@@ -25,8 +26,8 @@ function Layout({ children }: LayoutProps) {
 
       <AppShell.Main>{children}</AppShell.Main>
 
-      <AppShell.Footer>
-        <Flex justify="center" align="center" style={{ padding: "0.5rem 0" }}>
+      <AppShell.Footer >
+        <Flex justify="center" align="center" >
           <Text>Made by Noam 👽</Text>
         </Flex>
       </AppShell.Footer>

@@ -6,7 +6,7 @@ import Layout from "../layout/Layout";
 import { BsArrowBarLeft } from "react-icons/bs";
 import { useEffect } from "react";
 import { STORAGE_KEY } from "../services/apiService";
-import { useMediaQuery } from "@mantine/hooks";
+import { useIsMobile } from "../utils/breakpointsUtil";
 
 interface ProductPageProps {
   products: Product[];
@@ -17,7 +17,7 @@ interface ProductPageProps {
 function ProductPage({ products, isLoading, error }: ProductPageProps) {
   const { id } = useParams();
   const navigate = useNavigate();
-  const isMobile = useMediaQuery("( max-width: 600px )");
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     if (!isLoading && products.length > 0) {
@@ -47,7 +47,7 @@ function ProductPage({ products, isLoading, error }: ProductPageProps) {
   if (error) {
     return (
       <Layout>
-        <Container size="md" py="xl">
+        <Container size="md">
           <Center h={400}>
             <Flex
               direction={isMobile ? "column" : "row"}
@@ -85,8 +85,8 @@ function ProductPage({ products, isLoading, error }: ProductPageProps) {
 
   return (
     <Layout>
-      <Container size="md" py="xl">
-        <Group mb="xl">
+      <Container size="md" py={isMobile ? "md" : "xl"}>
+        <Group mb={isMobile ? "sm" : "lg"}>
           <Button variant="subtle" leftSection={<BsArrowBarLeft size={20} />} onClick={() => navigate("/")}>
             Back to Catalog
           </Button>

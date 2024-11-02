@@ -5,6 +5,7 @@ import SearchBar from "../components/searchbar/SearchBar";
 import ProductGrid from "../components/productGrid/ProductGrid";
 import { ProductDisplayProvider } from "../context/ProductContext";
 import Layout from "../layout/Layout";
+import { useIsLargeScreen } from "../utils/breakpointsUtil";
 
 interface HomePageProps {
   products: Product[];
@@ -14,6 +15,7 @@ interface HomePageProps {
 
 function HomePage({ products, isLoading, error }: HomePageProps) {
   const [searchTerm, setSearchTerm] = useState("");
+  const isLargeScreen = useIsLargeScreen();
 
   // useMemo wont be efficient as it will be recalculated every time searchTerm changes
   // and debouncing as well as we already get all products and just filter them
@@ -34,7 +36,9 @@ function HomePage({ products, isLoading, error }: HomePageProps) {
   return (
     <Layout>
       <Container size="xl">
-        <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
+        <Center style={{ margin: isLargeScreen ? "1rem auto 0.5rem auto" : "2rem auto 1rem auto " }}>
+          <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
+        </Center>
 
         <ProductDisplayProvider products={filteredProducts}>
           <ProductGrid isLoading={isLoading} />

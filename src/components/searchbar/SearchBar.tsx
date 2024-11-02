@@ -1,14 +1,13 @@
 import { TextInput } from "@mantine/core";
-import { useMediaQuery } from "@mantine/hooks";
 import { BsSearchHeart } from "react-icons/bs";
 import { SearchBarProps } from "../../types/search";
+import { useIsLargeScreen } from "../../utils/breakpointsUtil";
 
 function SearchBar({ searchTerm, onSearchChange, placeholder = "Search products..." }: SearchBarProps) {
-  const isLargeScreen = useMediaQuery("( min-width: 1200px )");
-
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onSearchChange(event.target.value);
   };
+  const isLargeScreen = useIsLargeScreen();
 
   return (
     <TextInput
@@ -19,7 +18,6 @@ function SearchBar({ searchTerm, onSearchChange, placeholder = "Search products.
       onChange={handleSearchChange}
       style={{
         width: isLargeScreen ? "45%" : "85%",
-        margin: isLargeScreen ? "0.5rem auto" : "2rem auto",
       }}
     />
   );

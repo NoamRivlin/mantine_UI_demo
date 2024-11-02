@@ -1,21 +1,46 @@
-import { Card, Image, Text, Group, Badge, Stack, Box } from "@mantine/core";
+import { Card, Image, Text, Group, Badge, Stack, Box, ScrollArea } from "@mantine/core";
 import { Product } from "../../types/product";
-import { useMediaQuery } from "@mantine/hooks";
+import { useIsMobile } from "../../utils/breakpointsUtil";
 
 interface ProductCardFullProps {
   product: Product;
 }
 
 const ProductCardFull = ({ product }: ProductCardFullProps) => {
-  const isMobile = useMediaQuery("(max-width: 600px)");
+  const isMobile = useIsMobile();
 
   const Description = ({ text }: { text: string }) => (
-    <Box maw="80%" mx="auto" mt="md">
-      <Text size="md" ta="center" lh={1.6}>
-        {text}
-        {/* {text}
-        {text} */}
-      </Text>
+    <Box
+      style={{
+        flex: "1 1 auto",
+        minHeight: 0,
+        display: "flex",
+        flexDirection: "column",
+        padding: "0 1rem",
+      }}
+    >
+      <ScrollArea.Autosize
+        mah="100%" // This makes it respect the parent container's height
+        offsetScrollbars
+        scrollbarSize={isMobile ? 6 : 12}
+        viewportProps={{
+          style: {
+            flex: 1,
+            minHeight: 0,
+          },
+        }}
+      >
+        <Box p="xs">
+          <Text size="md" ta="center" lh={isMobile ? 1.6 : 1.8}>
+            {/* to demonstrate handling long text */}
+            {text}
+            {text}
+            {text}
+            {text}
+            {text}
+          </Text>
+        </Box>
+      </ScrollArea.Autosize>
     </Box>
   );
 
@@ -46,19 +71,35 @@ const ProductCardFull = ({ product }: ProductCardFullProps) => {
   };
 
   return (
-    <Card shadow="sm" p="md" radius="md" h={isMobile ? 580 : 500} withBorder>
+    <Card
+      shadow="sm"
+      p="md"
+      radius="md"
+      withBorder
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "70vh",
+        maxHeight: "70vh",
+      }}
+    >
       <Card.Section withBorder>
         <Image
           src={product.image.url}
           alt={product.title}
-          height={300}
-          fit="contain"
-          style={{ backgroundColor: "transparent", padding: "1rem" }}
+          height={isMobile ? 220 : 320}
+          p="1rem"
+          w={isMobile ? "100%" : "80%"}
+          m="0 auto"
+          style={{ objectFit: "contain" }}
         />
       </Card.Section>
 
-      <HeaderContent title={product.title} price={product.price} />
-      <Description text={product.desc} />
+      <Box style={{ flex: 1, display: "flex", flexDirection: "column", minHeight: 0 }}>
+        {/* <Box > */}
+        <HeaderContent title={product.title} price={product.price} />
+        <Description text={product.desc} />
+      </Box>
     </Card>
   );
 };

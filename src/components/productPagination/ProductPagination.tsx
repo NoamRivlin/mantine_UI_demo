@@ -1,6 +1,6 @@
 import { Group, Pagination, Select, Text } from "@mantine/core";
 import { useProductDisplay } from "../../context/ProductContext";
-import { useMediaQuery } from "@mantine/hooks";
+import { useIsMobile } from "../../utils/breakpointsUtil";
 
 interface ProductPaginationProps {
   displayTextOnly?: boolean;
@@ -9,7 +9,8 @@ interface ProductPaginationProps {
 function ProductPagination({ displayTextOnly }: ProductPaginationProps) {
   const { currentPage, setCurrentPage, itemsPerPage, setItemsPerPage, totalPages, paginationRange } =
     useProductDisplay();
-  const isMobile = useMediaQuery("( max-width: 600px )");
+
+  const isMobile = useIsMobile();
 
   const itemsPerPageOptions = [
     { value: "6", label: "6 per page" },
@@ -19,7 +20,7 @@ function ProductPagination({ displayTextOnly }: ProductPaginationProps) {
 
   if (displayTextOnly) {
     return (
-      <Text size="sm" c="dimmed" ta="center" mt="sm">
+      <Text size="sm" c="dimmed" ta="center" mb={isMobile ? "md" : 'sm'}>
         Showing {paginationRange.startIndex + 1}-{Math.min(paginationRange.endIndex, paginationRange.total)} of{" "}
         {paginationRange.total} products
       </Text>
