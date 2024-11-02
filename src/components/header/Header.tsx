@@ -6,7 +6,7 @@ function AppHeader() {
     <>
       <Container size="xl" h="100%" style={{ justifyContent: "center", alignContent: "center" }}>
         <Center>
-          <Text component={Link} to="/" size="xl" style={{ fontWeight: 700 }}>
+          <Text component={Link} to="/" size="xl" fw={700}>
             Products Catalog
           </Text>
         </Center>

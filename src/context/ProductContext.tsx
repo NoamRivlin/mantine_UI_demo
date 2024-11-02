@@ -29,7 +29,7 @@ export function ProductDisplayProvider({ children, products }: ProductProviderPr
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState("6");
 
-
+  // Calculate pagination
   const itemsCount = parseInt(itemsPerPage);
   const totalPages = Math.ceil(products.length / itemsCount);
   const startIndex = (currentPage - 1) * itemsCount;

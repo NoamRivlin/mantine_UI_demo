@@ -27,17 +27,18 @@ import { useProducts } from "./hooks/useProducts";
 // });
 
 function App() {
-  const { products, isLoading } = useProducts();
-
-   
+  const { products, isLoading, error } = useProducts();
 
   return (
     <>
       <BrowserRouter>
         <MantineProvider defaultColorScheme="dark">
           <Routes>
-            <Route path="/" element={<HomePage products={products} isLoading={isLoading} />} />
-            <Route path="/product/:id" element={<ProductPage products={products} />} />
+            <Route path="/" element={<HomePage products={products} isLoading={isLoading} error={error} />} />
+            <Route
+              path="/product/:id"
+              element={<ProductPage products={products} isLoading={isLoading} error={error} />}
+            />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </MantineProvider>

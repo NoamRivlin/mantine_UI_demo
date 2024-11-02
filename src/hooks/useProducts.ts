@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Product } from "../types/product";
-import { productService } from "../services/apiService";
+import { productService, STORAGE_KEY } from "../services/apiService";
 
 interface UseProducts {
   products: Product[];
@@ -33,10 +33,9 @@ export const useProducts = (): UseProducts => {
   }, []);
 
   const refetch = async () => {
+    localStorage.removeItem(STORAGE_KEY);
     await fetchProducts();
   };
 
   return { products, isLoading, error, refetch };
 };
-
-

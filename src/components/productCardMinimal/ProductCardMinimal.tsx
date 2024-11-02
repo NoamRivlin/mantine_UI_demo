@@ -30,7 +30,7 @@ const ProductCardMinimal = ({ product }: ProductCardMinimalProps) => {
         <Image src={product.image.url} alt={product.title} height={200} fit="contain" />
       </AspectRatio>
       <Center>
-        <Text style={{ fontWeight: 500, fontSize: 18 }} size="lg" mt="md">
+        <Text fw={600} fz="18" size="lg" mt="md">
           {product.title}
         </Text>
       </Center>

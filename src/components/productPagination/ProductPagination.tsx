@@ -1,13 +1,15 @@
 import { Group, Pagination, Select, Text } from "@mantine/core";
 import { useProductDisplay } from "../../context/ProductContext";
+import { useMediaQuery } from "@mantine/hooks";
 
 interface ProductPaginationProps {
-  isJustText?: boolean;
+  displayTextOnly?: boolean;
 }
 
-function ProductPagination({ isJustText }: ProductPaginationProps) {
+function ProductPagination({ displayTextOnly }: ProductPaginationProps) {
   const { currentPage, setCurrentPage, itemsPerPage, setItemsPerPage, totalPages, paginationRange } =
     useProductDisplay();
+  const isMobile = useMediaQuery("( max-width: 600px )");
 
   const itemsPerPageOptions = [
     { value: "6", label: "6 per page" },
@@ -15,7 +17,7 @@ function ProductPagination({ isJustText }: ProductPaginationProps) {
     { value: "12", label: "12 per page" },
   ];
 
-  if (isJustText) {
+  if (displayTextOnly) {
     return (
       <Text size="sm" c="dimmed" ta="center" mt="sm">
         Showing {paginationRange.startIndex + 1}-{Math.min(paginationRange.endIndex, paginationRange.total)} of{" "}
@@ -25,7 +27,14 @@ function ProductPagination({ isJustText }: ProductPaginationProps) {
   }
 
   return (
-    <Group justify="space-between" p="sm" align="center">
+    <Group
+      justify={isMobile ? "center" : "space-between"}
+      p="xs"
+      w="95%"
+      m="0 auto"
+      align="center"
+      style={{ marginTop: "1rem" }}
+    >
       <Group>
         <Text size="sm">Items per page:</Text>
         <Select
@@ -45,8 +54,9 @@ function ProductPagination({ isJustText }: ProductPaginationProps) {
         onChange={setCurrentPage}
         size="sm"
         radius="md"
-        withEdges
-        style={{ marginTop: "1rem" }}
+        withEdges={isMobile ? false : true}
+        siblings={isMobile ? 0 : 1}
+        mt={isMobile ? "md" : 0}
       />
     </Group>
   );

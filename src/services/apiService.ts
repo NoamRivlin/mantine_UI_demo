@@ -1,7 +1,7 @@
 import { Product } from "../types/product";
 
-const API_URL: string = import.meta.env.VITE_KONIMBO_URL;
-const STORAGE_KEY: string = "productsData";
+export const API_URL: string = import.meta.env.VITE_KONIMBO_URL;
+export const STORAGE_KEY: string = "productsData";
 
 export const productService = {
   getAllProducts: async (): Promise<Product[]> => {
@@ -19,13 +19,16 @@ export const productService = {
       }
 
       const products: Product[] = await response.json();
-      console.log("products", products);
 
       localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
 
       return products;
     } catch (error) {
-      console.error("Error fetching products:", error);
+      const cachedData = localStorage.getItem(STORAGE_KEY);
+      if (cachedData) {
+        console.log("Using stale cached data after fetch error");
+        return JSON.parse(cachedData);
+      }
       throw error;
     }
   },
