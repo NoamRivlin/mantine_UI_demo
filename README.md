@@ -31,7 +31,7 @@ A React-based product catalog application built with TypeScript and Vite. This p
 1. Clone the repository:
 
 ```bash
-git clone [repository-url]
+git clone git@github.com:NoamRivlin/konimbo_HA.git
 cd konimbo-ha
 ```
 
