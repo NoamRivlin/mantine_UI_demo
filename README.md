@@ -25,13 +25,7 @@ A React-based product catalog application built with TypeScript and Vite. This p
 
 - Node.js (LTS version recommended)
 - npm or yarn package manager
-
-## ⚙️ Environment Setup
-
-1. Create a `.env` file in the root directory
-2. Add the following environment variable:
-```bash
-VITE_KONIMBO_URL=your_api_url_here
+- env file in the root folder with var named - VITE_KONIMBO_URL={your_url}
 
 
 ## 🔧 Installation
