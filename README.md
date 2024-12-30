@@ -1,4 +1,4 @@
-# Konimbo Home Assignment
+# Mantine UI Demo
 
 A React-based product catalog application built with TypeScript and Vite. This project showcases a responsive product grid with detailed product pages, utilizing modern React practices and the Mantine UI framework.
 
@@ -61,20 +61,10 @@ Starts the development server at `http://localhost:5173`
 npm run build
 ```
 
-Creates an optimized production build
-
-- **Lint check:**
+- **Production server(after build):**
 
 ```bash
-npm run lint
-```
-
-Runs ESLint to check code quality
-
-- **Preview production build:**
-
-```bash
-npm run preview
+npm run start
 ```
 
 Preview the production build locally
@@ -85,7 +75,6 @@ The application is built using:
 
 - Vite for fast development and building
 - TypeScript for type safety
-- ESLint for code quality
 - Mantine for UI components
 - React Router for navigation
 
@@ -93,7 +82,6 @@ The application is built using:
 
 This project uses:
 
-- ESLint for code linting
 - TypeScript for static type checking
 - Modern React practices and hooks
 - Component-based architecture
