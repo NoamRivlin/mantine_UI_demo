@@ -2,6 +2,15 @@
 
 A React-based product catalog application built with TypeScript and Vite. This project showcases a responsive product grid with detailed product pages, utilizing modern React practices and the Mantine UI framework.
 
+## Screenshots and videos
+
+![image](https://github.com/user-attachments/assets/ea6ac539-e528-4ea3-8c19-8b9b992c8d09)
+
+https://github.com/user-attachments/assets/968670fa-9f79-4a05-9e09-9e123b6d4328
+
+
+
+
 ## 🚀 Features
 
 - Product grid layout with clickable cards
